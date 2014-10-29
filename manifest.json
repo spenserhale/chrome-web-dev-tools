@@ -1,0 +1,31 @@
+{
+	"name": "Web Dev Tools Suite",
+	"version": "0.1.0",
+	"minimum_chrome_version": "18",
+	"manifest_version": 2,
+	"description": "A Chrome Extension which has a bundle of tools for web developers.",
+	"icons": {
+		"16": "/images/icon16.png", 
+		"48": "/images/icon48.png", 
+		"128": "/images/icon128.png"
+	},
+	"permissions": ["tabs", "http://*/*", "https://*/*", "webRequest"],
+	"background": {
+		"scripts": [ "background.js" ]
+	},
+
+    "page_action": {
+        "default_title": "Tools Suite",
+        "default_icon": "/images/icon48.png",
+        "default_popup": "popup.html"
+    },
+   
+   "content_scripts": [{
+		"all_frames": false, 
+		"run_at": "document_end", 
+		"js": ["jquery.js", "ip.js"],
+		"css": ["css/ip.css"], 
+		"matches": ["http://*/*", "https://*/*"]
+	}]
+   
+}
